@@ -9,9 +9,7 @@
     <meta name="apple-mobile-web-app-title" content="O/L Countdown">
     <title>2025 O/L Exam Countdown</title>
     
-    <!-- Bootstrap CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap Icons -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.1/font/bootstrap-icons.min.css" rel="stylesheet">
     
     <link rel="manifest" href="data:application/json;base64,ewogICJuYW1lIjogIjIwMjUgTy9MIEV4YW0gQ291bnRkb3duIiwKICAic2hvcnRfbmFtZSI6ICJPL0wgQ291bnRkb3duIiwKICAic3RhcnRfdXJsIjogIi8iLAogICJkaXNwbGF5IjogInN0YW5kYWxvbmUiLAogICJiYWNrZ3JvdW5kX2NvbG9yIjogIiMxZTFiNGIiLAogICJ0aGVtZV9jb2xvciI6ICIjNjM2NmYxIiwKICAiaWNvbnMiOiBbCiAgICB7CiAgICAgICJzcmMiOiAiZGF0YTppbWFnZS9zdmcreG1sO2Jhc2U2NCxQSE4yWnlCNGJXeHVjejBpYUhSMGNEb3ZMM2QzZHk1M015NXZjbWN2TWpBd01DOXpkbWNpSUhacFpYZENiM2c5SWpBZ01DQXhPVElnTVRreUlqNDhjbVZqZENCM2FXUjBhRDBpTVRreUlpQm9aV2xuYUhROUlqRTVNaUlnWm1sc2JEMGlJell6TmpabU1TSXZQanh3WVhSb0lHUTlJazB4TURZZ09EWkRNVEEySURZeUxqWWdPRGt1TmlBME9DQTRNQ0EwT0ZNMk5TNDBJRFEzTGpRZ05UWWdOVEZETkRZdU5DQTFOU0EwTUNBMk1DNDJJRFF3SURjMFV6TXpMalFnT0RrZ05EQWdPVFJNTkRBZ01UQTRJRGMwTGpZZ01UQTRRelpPTGpRZ01UQTRMalFnTUNBeE1UQWdNQ0F4TVRKU016QWdNVEkyTGpRZ05EVXVOaUF4TkRJdU5DQTFOaUF4TkRKVE9ERXVOaUF4TWpZdU5DQTROaUF4TVRBZ09EWWdPRFo2SWlCbWFXeHNQU0lqWm1abUlpOCtQQzkwWlhoMFBqd3ZjM1puUGc9PSIsCiAgICAgICJzaXplcyI6ICIxOTJ4MTkyIiwKICAgICAgInR5cGUiOiAiaW1hZ2Uvc3ZnK3htbCIKICAgIH0KICBdCn0=">
@@ -23,158 +21,99 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --glass-bg: rgba(255, 255, 255, 0.15);
+            --glass-border: rgba(255, 255, 255, 0.3);
+            --text-primary: #ffffff;
+            --text-secondary: rgba(255, 255, 255, 0.9);
+            --shadow-sm: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            --shadow-lg: 0 12px 40px 0 rgba(31, 38, 135, 0.5);
+        }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: var(--gradient-1);
             min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
             position: relative;
             overflow-x: hidden;
-            animation: gradientShift 15s ease infinite;
+            animation: gradientShift 20s ease infinite;
+            padding: 2rem 0;
         }
 
         @keyframes gradientShift {
-            0% { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
-            50% { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
-            100% { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+            0% { background: var(--gradient-1); }
+            33% { background: var(--gradient-2); }
+            66% { background: var(--gradient-3); }
+            100% { background: var(--gradient-1); }
         }
 
-        .container {
-            position: relative;
-            z-index: 1;
-            animation: fadeIn 1s ease-in;
+        .main-container {
+            animation: fadeInUp 1s ease-out;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        .header {
+        .header-section {
             text-align: center;
             margin-bottom: 3rem;
-            color: white;
+            color: var(--text-primary);
         }
 
-        .header h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            text-shadow: 2px 2px 20px rgba(0,0,0,0.3);
-            animation: glow 2s ease-in-out infinite alternate;
+        .header-section h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            text-shadow: 3px 3px 20px rgba(0,0,0,0.3);
+            animation: glow 3s ease-in-out infinite alternate;
+            letter-spacing: 1px;
         }
 
         @keyframes glow {
-            from { text-shadow: 2px 2px 20px rgba(255,255,255,0.3); }
-            to { text-shadow: 2px 2px 30px rgba(255,255,255,0.6); }
+            from { text-shadow: 3px 3px 20px rgba(255,255,255,0.4); }
+            to { text-shadow: 3px 3px 35px rgba(255,255,255,0.7); }
         }
 
-        .header p {
-            font-size: 1.2rem;
-            opacity: 0.95;
-        }
-
-        .countdown-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .countdown-card {
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 2rem 1.5rem;
-            text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            animation: slideUp 0.8s ease;
-        }
-
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .countdown-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.5);
-        }
-
-        .countdown-card .icon {
-            font-size: 2.5rem;
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 1rem;
-            animation: bounce 2s infinite;
-        }
-
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-
-        .countdown-card .number {
-            font-size: 3.5rem;
-            font-weight: 700;
-            color: white;
-            line-height: 1;
-            margin-bottom: 0.5rem;
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
-            transition: all 0.5s ease;
-        }
-
-        .countdown-card .label {
-            font-size: 1rem;
-            color: rgba(255, 255, 255, 0.9);
-            text-transform: uppercase;
-            letter-spacing: 2px;
+        .header-section .exam-date {
+            font-size: 1.5rem;
             font-weight: 600;
+            opacity: 0.95;
+            margin-bottom: 0.5rem;
         }
 
-        .quote-box {
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            padding: 1.5rem;
-            text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            margin-bottom: 2rem;
-            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-        }
-
-        .quote-box p {
-            color: white;
+        .header-section .exam-info {
             font-size: 1.1rem;
-            font-style: italic;
-            margin: 0;
-            opacity: 0;
-            animation: fadeInQuote 1s ease-in forwards;
+            opacity: 0.85;
         }
 
-        @keyframes fadeInQuote {
-            to { opacity: 1; }
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            border-radius: 25px;
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--shadow-sm);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .footer {
-            text-align: center;
-            color: white;
-            margin-top: 2rem;
-            font-size: 1.1rem;
+        .glass-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
         }
 
         .pwa-install {
             background: rgba(255, 255, 255, 0.25);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.4);
+            border: 2px solid rgba(255, 255, 255, 0.4);
             border-radius: 15px;
-            padding: 1rem 2rem;
+            padding: 1rem 2.5rem;
             color: white;
-            font-weight: 600;
+            font-weight: 700;
+            font-size: 1.1rem;
             cursor: pointer;
             transition: all 0.3s ease;
             display: none;
@@ -183,89 +122,410 @@
 
         .pwa-install:hover {
             background: rgba(255, 255, 255, 0.35);
-            transform: scale(1.05);
+            transform: scale(1.08);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
         }
 
         .pwa-install.show {
             display: inline-block;
         }
 
-        @media (max-width: 768px) {
-            .header h1 {
-                font-size: 2rem;
-            }
-            .countdown-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .countdown-card .number {
-                font-size: 2.5rem;
-            }
+        .main-countdown {
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            animation: slideIn 0.8s ease-out;
         }
 
-        @media (max-width: 480px) {
-            .countdown-card {
-                padding: 1.5rem 1rem;
-            }
-            .countdown-card .icon {
-                font-size: 2rem;
-            }
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
         }
 
-        .pulse {
-            animation: pulse 1s ease-in-out;
+        .countdown-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 2rem;
+            text-align: center;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .countdown-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .countdown-item {
+            text-align: center;
+            animation: bounceIn 0.6s ease-out;
+        }
+
+        @keyframes bounceIn {
+            0% { opacity: 0; transform: scale(0.3); }
+            50% { transform: scale(1.05); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        .countdown-item .icon-wrapper {
+            font-size: 2.8rem;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-12px); }
+        }
+
+        .countdown-item .number {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 15px rgba(0,0,0,0.3);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .countdown-item .label {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+        }
+
+        .progress-section {
+            padding: 2rem;
+            margin-bottom: 2rem;
+            animation: slideIn 1s ease-out 0.2s both;
+        }
+
+        .progress-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .progress-bar-container {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50px;
+            height: 40px;
+            overflow: hidden;
+            position: relative;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);
+            border-radius: 50px;
+            transition: width 1s ease-out;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 1rem;
+            box-shadow: 0 0 20px rgba(79, 172, 254, 0.6);
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
+        }
+
+        .progress-percentage {
+            color: white;
+            font-weight: 800;
+            font-size: 1rem;
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+        }
+
+        .quote-section {
+            padding: 2rem;
+            margin-bottom: 2rem;
+            animation: slideIn 1.2s ease-out 0.4s both;
+        }
+
+        .quote-text {
+            color: var(--text-primary);
+            font-size: 1.3rem;
+            font-style: italic;
+            text-align: center;
+            margin: 0;
+            line-height: 1.6;
+            animation: fadeIn 1s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .quote-icon {
+            font-size: 2rem;
+            color: var(--text-secondary);
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .breakdown-section {
+            padding: 0 2rem 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .breakdown-header {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .breakdown-header:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateX(5px);
+        }
+
+        .breakdown-header h3 {
+            color: var(--text-primary);
+            font-weight: 700;
+            font-size: 1.5rem;
+            margin: 0;
+        }
+
+        .breakdown-icon {
+            font-size: 1.5rem;
+            color: var(--text-primary);
+            transition: transform 0.3s ease;
+        }
+
+        .breakdown-icon.rotated {
+            transform: rotate(180deg);
+        }
+
+        .breakdown-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+            padding: 0 1.5rem;
+        }
+
+        .breakdown-content.expanded {
+            max-height: 1000px;
+            padding: 2rem 1.5rem 0;
+        }
+
+        .breakdown-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .breakdown-card {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 1.5rem;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .breakdown-card .breakdown-value {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .breakdown-card .breakdown-label {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        .motivational-section {
+            padding: 2rem;
+            text-align: center;
+            animation: slideIn 1.4s ease-out 0.6s both;
+        }
+
+        .motivational-message {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 15px rgba(0,0,0,0.3);
+        }
+
+        .motivational-emoji {
+            font-size: 3rem;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .footer-section {
+            text-align: center;
+            color: var(--text-primary);
+            margin-top: 3rem;
+            padding: 2rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+            animation: fadeIn 2s ease-in;
+        }
+
+        .pulse-animation {
+            animation: pulse 0.6s cubic-bezier(0.4, 0, 0.6, 1);
         }
 
         @keyframes pulse {
             0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
+            50% { transform: scale(1.15); }
+        }
+
+        @media (max-width: 992px) {
+            .header-section h1 { font-size: 2.5rem; }
+            .countdown-grid { grid-template-columns: repeat(3, 1fr); }
+            .breakdown-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            .header-section h1 { font-size: 2rem; }
+            .countdown-grid { grid-template-columns: repeat(2, 1fr); }
+            .countdown-item .number { font-size: 2.8rem; }
+            .countdown-title { font-size: 1.5rem; }
+            .main-countdown { padding: 1.5rem; }
+        }
+
+        @media (max-width: 480px) {
+            .header-section h1 { font-size: 1.8rem; }
+            .countdown-item .icon-wrapper { font-size: 2rem; }
+            .countdown-item .number { font-size: 2.2rem; }
+            .breakdown-grid { grid-template-columns: 1fr; }
+            .quote-text { font-size: 1.1rem; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
+    <div class="container main-container">
+        <div class="header-section">
             <h1>📚 2025 O/L Examination</h1>
-            <p>February 16, 2026</p>
+            <p class="exam-date"><i class="bi bi-calendar-check"></i> February 17, 2026</p>
+            <p class="exam-info">Prepare with dedication, succeed with confidence</p>
         </div>
 
-        <button class="pwa-install" id="installBtn">
-            <i class="bi bi-download"></i> Add to Home Screen
-        </button>
+        <div class="text-center mb-4">
+            <button class="pwa-install" id="installBtn">
+                <i class="bi bi-download"></i> Add to Home Screen
+            </button>
+        </div>
 
-        <div class="countdown-grid">
-            <div class="countdown-card" style="animation-delay: 0.1s;">
-                <div class="icon"><i class="bi bi-calendar-event"></i></div>
-                <div class="number" id="days">0</div>
-                <div class="label">Days</div>
-            </div>
-            <div class="countdown-card" style="animation-delay: 0.2s;">
-                <div class="icon"><i class="bi bi-calendar-week"></i></div>
-                <div class="number" id="weeks">0</div>
-                <div class="label">Weeks</div>
-            </div>
-            <div class="countdown-card" style="animation-delay: 0.3s;">
-                <div class="icon"><i class="bi bi-clock"></i></div>
-                <div class="number" id="hours">0</div>
-                <div class="label">Hours</div>
-            </div>
-            <div class="countdown-card" style="animation-delay: 0.4s;">
-                <div class="icon"><i class="bi bi-hourglass-split"></i></div>
-                <div class="number" id="minutes">0</div>
-                <div class="label">Minutes</div>
+        <div class="glass-card main-countdown">
+            <h2 class="countdown-title"><i class="bi bi-clock-history"></i> Live Countdown Timer</h2>
+            <div class="countdown-grid">
+                <div class="countdown-item" style="animation-delay: 0.1s;">
+                    <div class="icon-wrapper"><i class="bi bi-calendar-event"></i></div>
+                    <div class="number" id="days">0</div>
+                    <div class="label">Days</div>
+                </div>
+                <div class="countdown-item" style="animation-delay: 0.2s;">
+                    <div class="icon-wrapper"><i class="bi bi-calendar-week"></i></div>
+                    <div class="number" id="weeks">0</div>
+                    <div class="label">Weeks</div>
+                </div>
+                <div class="countdown-item" style="animation-delay: 0.3s;">
+                    <div class="icon-wrapper"><i class="bi bi-clock"></i></div>
+                    <div class="number" id="hours">0</div>
+                    <div class="label">Hours</div>
+                </div>
+                <div class="countdown-item" style="animation-delay: 0.4s;">
+                    <div class="icon-wrapper"><i class="bi bi-hourglass-split"></i></div>
+                    <div class="number" id="minutes">0</div>
+                    <div class="label">Minutes</div>
+                </div>
+                <div class="countdown-item" style="animation-delay: 0.5s;">
+                    <div class="icon-wrapper"><i class="bi bi-stopwatch"></i></div>
+                    <div class="number" id="seconds">0</div>
+                    <div class="label">Seconds</div>
+                </div>
             </div>
         </div>
 
-        <div class="quote-box">
-            <p id="quote">Success is the sum of small efforts repeated day in and day out.</p>
+        <div class="glass-card progress-section">
+            <h3 class="progress-title"><i class="bi bi-graph-up-arrow"></i> Exam Preparation Progress</h3>
+            <div class="progress-bar-container">
+                <div class="progress-bar-fill" id="progressBar">
+                    <span class="progress-percentage" id="progressPercentage">0%</span>
+                </div>
+            </div>
         </div>
 
-        <div class="footer">
-            Good luck for your 2025 O/L Exams! 🎓
+        <div class="glass-card quote-section">
+            <div class="quote-icon"><i class="bi bi-quote"></i></div>
+            <p class="quote-text" id="quote">Success is the sum of small efforts repeated day in and day out.</p>
+        </div>
+
+        <div class="glass-card breakdown-section">
+            <div class="breakdown-header" id="breakdownToggle">
+                <h3><i class="bi bi-list-ul"></i> Full Time Breakdown</h3>
+                <i class="bi bi-chevron-down breakdown-icon" id="breakdownIcon"></i>
+            </div>
+            <div class="breakdown-content" id="breakdownContent">
+                <div class="breakdown-grid">
+                    <div class="breakdown-card">
+                        <div class="breakdown-value" id="totalWeeks">0</div>
+                        <div class="breakdown-label">Total Weeks</div>
+                    </div>
+                    <div class="breakdown-card">
+                        <div class="breakdown-value" id="totalDays">0</div>
+                        <div class="breakdown-label">Total Days</div>
+                    </div>
+                    <div class="breakdown-card">
+                        <div class="breakdown-value" id="totalHours">0</div>
+                        <div class="breakdown-label">Total Hours</div>
+                    </div>
+                    <div class="breakdown-card">
+                        <div class="breakdown-value" id="totalMinutes">0</div>
+                        <div class="breakdown-label">Total Minutes</div>
+                    </div>
+                    <div class="breakdown-card">
+                        <div class="breakdown-value" id="totalSeconds">0</div>
+                        <div class="breakdown-label">Total Seconds</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="glass-card motivational-section">
+            <div class="motivational-emoji">🎓</div>
+            <p class="motivational-message" id="motivationalMessage">Your success journey begins today!</p>
+        </div>
+
+        <div class="footer-section">
+            Good luck for your 2025 O/L Exams! You've got this! 🌟
         </div>
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
     <script>
-        const examDate = new Date('2026-02-16T00:00:00').getTime();
+        const examDate = new Date('2026-02-17T00:00:00').getTime();
+        const startDate = new Date('2025-01-01T00:00:00').getTime();
         
         const quotes = [
             "Success is the sum of small efforts repeated day in and day out.",
@@ -275,38 +535,85 @@
             "Every accomplishment starts with the decision to try.",
             "Your education is a dress rehearsal for a life that is yours to lead.",
             "The expert in anything was once a beginner.",
-            "Success doesn't come from what you do occasionally, it comes from what you do consistently."
+            "Success doesn't come from what you do occasionally, it comes from what you do consistently.",
+            "Education is the most powerful weapon which you can use to change the world.",
+            "The only way to do great work is to love what you do.",
+            "Push yourself, because no one else is going to do it for you.",
+            "Great things never come from comfort zones."
+        ];
+
+        const motivationalMessages = [
+            "Your success journey begins today!",
+            "Every moment counts towards your goal!",
+            "Keep pushing forward, excellence awaits!",
+            "Your dedication will pay off brilliantly!",
+            "Stay focused, stay determined!",
+            "You're preparing for a bright future!",
+            "Consistency is the key to success!",
+            "Your hard work will shine through!"
         ];
 
         let currentQuoteIndex = 0;
+        let currentMessageIndex = 0;
+        let isBreakdownExpanded = false;
 
         function updateCountdown() {
             const now = new Date().getTime();
             const distance = examDate - now;
 
+            if (distance < 0) {
+                document.querySelector('.header-section h1').textContent = '🎉 Exam Day is Here!';
+                clearInterval(countdownInterval);
+                return;
+            }
+
             const days = Math.floor(distance / (1000 * 60 * 60 * 24));
             const weeks = Math.floor(days / 7);
             const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
             updateNumber('days', days);
             updateNumber('weeks', weeks);
             updateNumber('hours', hours);
             updateNumber('minutes', minutes);
+            updateNumber('seconds', seconds);
 
-            if (distance < 0) {
-                document.querySelector('.header h1').textContent = '🎉 Exam Day is Here!';
-                clearInterval(countdownInterval);
-            }
+            const totalSeconds = Math.floor(distance / 1000);
+            const totalMinutes = Math.floor(distance / (1000 * 60));
+            const totalHours = Math.floor(distance / (1000 * 60 * 60));
+            const totalDays = days;
+            const totalWeeks = weeks;
+
+            updateNumber('totalSeconds', totalSeconds.toLocaleString());
+            updateNumber('totalMinutes', totalMinutes.toLocaleString());
+            updateNumber('totalHours', totalHours.toLocaleString());
+            updateNumber('totalDays', totalDays.toLocaleString());
+            updateNumber('totalWeeks', totalWeeks.toLocaleString());
+
+            updateProgressBar(distance);
         }
 
         function updateNumber(id, value) {
             const element = document.getElementById(id);
-            if (element.textContent !== value.toString()) {
-                element.textContent = value;
-                element.classList.add('pulse');
-                setTimeout(() => element.classList.remove('pulse'), 1000);
+            const valueStr = typeof value === 'number' ? value.toString() : value;
+            if (element && element.textContent !== valueStr) {
+                element.textContent = valueStr;
+                element.classList.add('pulse-animation');
+                setTimeout(() => element.classList.remove('pulse-animation'), 600);
             }
+        }
+
+        function updateProgressBar(distance) {
+            const totalTime = examDate - startDate;
+            const elapsed = totalTime - distance;
+            const percentage = Math.max(0, Math.min(100, (elapsed / totalTime) * 100));
+            
+            const progressBar = document.getElementById('progressBar');
+            const progressPercentage = document.getElementById('progressPercentage');
+            
+            progressBar.style.width = percentage + '%';
+            progressPercentage.textContent = percentage.toFixed(1) + '%';
         }
 
         function changeQuote() {
@@ -315,15 +622,39 @@
             setTimeout(() => {
                 currentQuoteIndex = (currentQuoteIndex + 1) % quotes.length;
                 quoteElement.textContent = quotes[currentQuoteIndex];
-                quoteElement.style.animation = 'fadeInQuote 1s ease-in forwards';
+                quoteElement.style.animation = 'fadeIn 1s ease-in';
             }, 100);
         }
 
+        function changeMotivationalMessage() {
+            const messageElement = document.getElementById('motivationalMessage');
+            messageElement.style.animation = 'none';
+            setTimeout(() => {
+                currentMessageIndex = (currentMessageIndex + 1) % motivationalMessages.length;
+                messageElement.textContent = motivationalMessages[currentMessageIndex];
+                messageElement.style.animation = 'fadeIn 1s ease-in';
+            }, 100);
+        }
+
+        document.getElementById('breakdownToggle').addEventListener('click', () => {
+            isBreakdownExpanded = !isBreakdownExpanded;
+            const content = document.getElementById('breakdownContent');
+            const icon = document.getElementById('breakdownIcon');
+            
+            if (isBreakdownExpanded) {
+                content.classList.add('expanded');
+                icon.classList.add('rotated');
+            } else {
+                content.classList.remove('expanded');
+                icon.classList.remove('rotated');
+            }
+        });
+
         updateCountdown();
         const countdownInterval = setInterval(updateCountdown, 1000);
-        setInterval(changeQuote, 5000);
+        setInterval(changeQuote, 7000);
+        setInterval(changeMotivationalMessage, 10000);
 
-        // PWA Installation
         let deferredPrompt;
         const installBtn = document.getElementById('installBtn');
 
@@ -346,7 +677,6 @@
             installBtn.classList.remove('show');
         });
 
-        // Service Worker Registration
         if ('serviceWorker' in navigator) {
             const swCode = `
                 self.addEventListener('install', (e) => {
